@@ -21,6 +21,8 @@ public interface Person extends Comparable {
      *
      * @return имя человека в виде строки
      */
+    
+    
     String getName();
 
     /**

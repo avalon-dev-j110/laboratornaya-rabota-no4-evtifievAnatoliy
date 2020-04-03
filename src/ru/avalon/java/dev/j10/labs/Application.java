@@ -12,7 +12,10 @@ public class Application {
          * чтобы он содержал 20 строк, расположенных не
          * по порядку.
          */
-	    String[] strings = null;
+	    String[] strings = {"Summer", "Winter", "Petia", "Name", "Tolic", 
+                "Russian", "USA", "England", "Football", "BasketBall", 
+            "Elefant", "Pig", "Cow", "Cat", "Dog",
+                    "Anything", "Hello", "Goodbay", "Document", "Person"};
 
 	    /*
 	     * TODO(Студент): Проинициализируйте массив persons
