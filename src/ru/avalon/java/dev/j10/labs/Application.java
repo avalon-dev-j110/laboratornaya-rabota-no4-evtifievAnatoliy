@@ -60,7 +60,7 @@ public class Application {
          
         int i=0;
         for(ClassPerson person : persons){    
-            System.out.println("Person " + i + " : " + persons[i].toString());
+            System.out.println("Person " + i + " : " + person.toString());
             i++;
         }
     

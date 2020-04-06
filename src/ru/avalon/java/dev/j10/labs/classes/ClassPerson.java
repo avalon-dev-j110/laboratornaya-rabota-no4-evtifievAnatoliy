@@ -28,7 +28,7 @@ public class ClassPerson implements Person
         } catch (ParseException ex) {
             this.BirthDate = null;
         }
-;
+
     }
 
     
@@ -45,7 +45,7 @@ public class ClassPerson implements Person
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat( "dd.MM.yyyy" );
-        return getName() + " " + df.format(BirthDate) + " года рождения";
+        return getName() + ", " + df.format(BirthDate) + " года рождения";
     }
     
     
