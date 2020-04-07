@@ -3,6 +3,7 @@ import ru.avalon.java.dev.j10.labs.classes.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
@@ -25,9 +26,7 @@ public class Application {
             "Russian", "USA", "England", "Football", "BasketBall", 
             "Elefant", "Pig", "Cow", "Cat", "Dog",
             "Anything", "Hello", "Goodbay", "Document", "Person"};
-        
-        for(String str : strings)
-            System.out.println("String: " + str);
+              
 	/*
 	 * TODO(Студент): Проинициализируйте массив persons
 	 *
@@ -58,11 +57,11 @@ public class Application {
         persons[18] = new ClassPerson("Васельков Иван Иванович", "15.01.1984");
         persons[19] = new ClassPerson("Иванов Иван Иванович", "15.02.1984");
          
-        int i=0;
-        for(ClassPerson person : persons){    
-            System.out.println("Person " + i + " : " + person.toString());
-            i++;
-        }
+        
+        for(int i=0; i<persons.length; i++)    
+            System.out.println("Person " + i + " : " + persons[i].toString());
+            
+        
     
 
         /*
@@ -76,19 +75,19 @@ public class Application {
         Sort sort = new Sort(){
             @Override
             public void sort(Object[] array) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                Arrays.sort(array);
             }
 
             @Override
             public void sort(Comparable[] array) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                Arrays.sort(array);
             }
-
+/*
             @Override
             public void sort(Object[] array, Comparator comparator) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
-            
+*/            
         };
 
         /*
@@ -101,7 +100,7 @@ public class Application {
          * 2. Проинициализируйте переменную comparator
          *    экземпляром созданного класса.
          */
-        Comparator comparator = null;
+  //      Comparator comparator = null;
 
         /*
          * TODO(Студент): Отсортируйте массив persons по возрастанию
@@ -114,7 +113,8 @@ public class Application {
          *    что массив отсортирован по возрастанию.
          */
         sort.sort(persons);
-
+        for(int i=0; i<persons.length; i++)    
+            System.out.println("Person " + i + " : " + persons[i].toString());
         /*
          * TODO(Студент): Отсортируйте массив strings по возрастанию
          *
@@ -125,7 +125,16 @@ public class Application {
          * 2. С использованием отладчика убедитесь в том,
          *    что массив отсортирован по возрастанию.
          */
+        String fullStr = "";
+        for(String str : strings)
+            fullStr = String.join(", ", fullStr, str); 
+        System.out.println("String before sort: " + fullStr.substring(2));
+        
         sort.sort(strings);
+        fullStr = "";
+        for(String str : strings)
+            fullStr = String.join(", ", fullStr, str); 
+        System.out.println("String after  sort: " + fullStr.substring(2));
 
         /*
          * TODO(Студент): Отсортируйте массив strings по убыванию
@@ -136,7 +145,7 @@ public class Application {
          * 2. С использованием отладчика убедитесь в том,
          *    что массив отсортирован по убыванию.
          */
-        sort.sort(strings, comparator);
+//        sort.sort(strings, comparator);
         
     }
 }

@@ -48,11 +48,15 @@ public class ClassPerson implements Person
         return getName() + ", " + df.format(BirthDate) + " года рождения";
     }
     
-    
+    /*
 
+    public int compareTo(ClassPerson person) {
+        return Name.compareTo(getName());
+    }
+*/
     @Override
     public int compareTo(Object t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Name.compareTo(getName());
     }
     
 }
