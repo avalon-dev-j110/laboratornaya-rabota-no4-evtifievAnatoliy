@@ -16,7 +16,7 @@ import ru.avalon.java.dev.j10.labs.Person;
  *
  * @author user
  */
-public class ClassPerson implements Person
+public class ClassPerson implements Person 
 {
     String Name;
     Date BirthDate;
@@ -54,9 +54,12 @@ public class ClassPerson implements Person
         return Name.compareTo(getName());
     }
 */
-    @Override
-    public int compareTo(Object t) {
-        return Name.compareTo(getName());
+    public int compareTo(Person p) {
+        if (this.getName().compareTo(p.getName()) != 0)
+            return  this.getName().compareTo(p.getName());
+        else
+            return  -this.BirthDate.compareTo(p.getBirthDate());
     }
+
     
 }

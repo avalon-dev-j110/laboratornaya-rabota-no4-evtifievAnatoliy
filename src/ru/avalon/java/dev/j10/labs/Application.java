@@ -39,7 +39,7 @@ public class Application {
         persons[0] = new ClassPerson("Иванов Иван Иванович", "15.01.1984");
         persons[1] = new ClassPerson("Иванов Иван Иванович", "15.05.1984");
         persons[2] = new ClassPerson("Иванов Петр Иванович", "15.01.1984");
-        persons[3] = new ClassPerson("Сидоров Иван Иванович", "15.01.1984");
+        persons[3] = new ClassPerson("Сидоров Иван Иванович", "15.02.1984");
         persons[4] = new ClassPerson("Крикунов Иван Иванович", "15.01.1984");
         persons[5] = new ClassPerson("Евтифьев Иван Иванович", "15.01.1984");
         persons[6] = new ClassPerson("Петров Иван Иванович", "15.01.1984");
@@ -58,9 +58,6 @@ public class Application {
         persons[19] = new ClassPerson("Иванов Иван Иванович", "15.02.1984");
          
         
-        for(int i=0; i<persons.length; i++)    
-            System.out.println("Person " + i + " : " + persons[i].toString());
-            
         
     
 
@@ -82,12 +79,12 @@ public class Application {
             public void sort(Comparable[] array) {
                 Arrays.sort(array);
             }
-/*
+
             @Override
             public void sort(Object[] array, Comparator comparator) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                Arrays.sort(array, comparator);
             }
-*/            
+            
         };
 
         /*
@@ -100,7 +97,7 @@ public class Application {
          * 2. Проинициализируйте переменную comparator
          *    экземпляром созданного класса.
          */
-  //      Comparator comparator = null;
+        Comparator <String> comparator = new StringComparator();
 
         /*
          * TODO(Студент): Отсортируйте массив persons по возрастанию
@@ -112,6 +109,12 @@ public class Application {
          * 2. С использованием отладчика убедитесь в том,
          *    что массив отсортирован по возрастанию.
          */
+        System.out.println("-----------------------------------------");
+        System.out.println("persons before sort:");
+        for(int i=0; i<persons.length; i++)    
+            System.out.println("Person " + i + " : " + persons[i].toString());
+            
+        System.out.println("persons after sort:");
         sort.sort(persons);
         for(int i=0; i<persons.length; i++)    
             System.out.println("Person " + i + " : " + persons[i].toString());
@@ -125,6 +128,7 @@ public class Application {
          * 2. С использованием отладчика убедитесь в том,
          *    что массив отсортирован по возрастанию.
          */
+        System.out.println("-----------------------------------------");
         String fullStr = "";
         for(String str : strings)
             fullStr = String.join(", ", fullStr, str); 
@@ -145,7 +149,17 @@ public class Application {
          * 2. С использованием отладчика убедитесь в том,
          *    что массив отсортирован по убыванию.
          */
-//        sort.sort(strings, comparator);
         
+        System.out.println("-----------------------------------------");
+        fullStr = "";
+        for(String str : strings)
+            fullStr = String.join(", ", fullStr, str); 
+        System.out.println("String before sort: " + fullStr.substring(2));
+        
+        sort.sort(strings, comparator);
+        fullStr = "";
+        for(String str : strings)
+            fullStr = String.join(", ", fullStr, str); 
+        System.out.println("String after  sort: " + fullStr.substring(2));
     }
 }
