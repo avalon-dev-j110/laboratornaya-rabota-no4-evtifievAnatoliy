@@ -35,30 +35,30 @@ public class Application {
 	 * 2. Проинициализируйте массив persons 20
 	 *    экземплярыми созданного класса.
 	 */
-	ClassPerson[] persons = new ClassPerson[20];
-        persons[0] = new ClassPerson("Иванов Иван Иванович", "15.01.1984");
-        persons[1] = new ClassPerson("Иванов Иван Иванович", "15.05.1984");
-        persons[2] = new ClassPerson("Иванов Петр Иванович", "15.01.1984");
-        persons[3] = new ClassPerson("Сидоров Иван Иванович", "15.02.1984");
-        persons[4] = new ClassPerson("Крикунов Иван Иванович", "15.01.1984");
-        persons[5] = new ClassPerson("Евтифьев Иван Иванович", "15.01.1984");
-        persons[6] = new ClassPerson("Петров Иван Иванович", "15.01.1984");
-        persons[7] = new ClassPerson("Иванов Иван Иванович", "15.01.1984");
-        persons[8] = new ClassPerson("Иванов Петр Иванович", "15.01.1984");
-        persons[9] = new ClassPerson("Иванов Петр Петрович", "15.01.1985");
-        persons[10] = new ClassPerson("Иванов Петр Петрович", "15.01.1984");
-        persons[11] = new ClassPerson("Иванов Иван Иванович", "15.01.1984");
-        persons[12] = new ClassPerson("Иванов Иван Иванович", "15.06.1965");
-        persons[13] = new ClassPerson("Иванов Иван Сергеевич", "15.01.1984");
-        persons[14] = new ClassPerson("Иванов Иван Петрович", "16.01.1984");
-        persons[15] = new ClassPerson("Иванов Иван Иванович", "15.02.1974");
-        persons[16] = new ClassPerson("Сидоров Иван Иванович", "15.01.1984");
-        persons[17] = new ClassPerson("Иванов Василий Иванович", "15.01.1984");
-        persons[18] = new ClassPerson("Васельков Иван Иванович", "15.01.1984");
-        persons[19] = new ClassPerson("Иванов Иван Иванович", "15.02.1984");
-         
         
-        
+	ClassPerson[] persons = {
+        new ClassPerson("Иванов Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Иван Иванович", new Date(1984, 05, 15)),
+        new ClassPerson("Иванов Петр Иванович", new Date(1984, 00, 15)),
+        new ClassPerson("Сидоров Иван Иванович", new Date(1984, 02, 15)),
+        new ClassPerson("Крикунов Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Евтифьев Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Петров Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Петр Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Петр Петрович", new Date(1985, 00, 15)),
+        new ClassPerson("Иванов Петр Петрович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Иван Иванович", new Date(1965, 06, 15)),
+        new ClassPerson("Иванов Иван Сергеевич", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Иван Петрович", new Date(1984, 01, 16)),
+        new ClassPerson("Иванов Иван Иванович", new Date(1974, 02, 15)),
+        new ClassPerson("Сидоров Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Василий Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Васельков Иван Иванович", new Date(1984, 01, 15)),
+        new ClassPerson("Иванов Иван Иванович", new Date(1984, 02, 15))};
+     
+                
     
 
         /*
@@ -111,13 +111,15 @@ public class Application {
          */
         System.out.println("-----------------------------------------");
         System.out.println("persons before sort:");
+        
         for(int i=0; i<persons.length; i++)    
-            System.out.println("Person " + i + " : " + persons[i].toString());
+            System.out.println("Person " + i + " : " + persons[i]);
             
         System.out.println("persons after sort:");
         sort.sort(persons);
         for(int i=0; i<persons.length; i++)    
-            System.out.println("Person " + i + " : " + persons[i].toString());
+            System.out.println("Person " + i + " : " + persons[i]);
+        
         /*
          * TODO(Студент): Отсортируйте массив strings по возрастанию
          *
@@ -129,16 +131,10 @@ public class Application {
          *    что массив отсортирован по возрастанию.
          */
         System.out.println("-----------------------------------------");
-        String fullStr = "";
-        for(String str : strings)
-            fullStr = String.join(", ", fullStr, str); 
-        System.out.println("String before sort: " + fullStr.substring(2));
+        System.out.println("String before sort: " + String.join(", ", strings));
         
         sort.sort(strings);
-        fullStr = "";
-        for(String str : strings)
-            fullStr = String.join(", ", fullStr, str); 
-        System.out.println("String after  sort: " + fullStr.substring(2));
+        System.out.println("String after  sort: " + String.join(", ", strings));
 
         /*
          * TODO(Студент): Отсортируйте массив strings по убыванию
@@ -151,15 +147,9 @@ public class Application {
          */
         
         System.out.println("-----------------------------------------");
-        fullStr = "";
-        for(String str : strings)
-            fullStr = String.join(", ", fullStr, str); 
-        System.out.println("String before sort: " + fullStr.substring(2));
+        System.out.println("String before sort: " + String.join(", ", strings));
         
         sort.sort(strings, comparator);
-        fullStr = "";
-        for(String str : strings)
-            fullStr = String.join(", ", fullStr, str); 
-        System.out.println("String after  sort: " + fullStr.substring(2));
+        System.out.println("String after  sort: " + String.join(", ", strings));
     }
 }

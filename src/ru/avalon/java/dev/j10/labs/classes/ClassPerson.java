@@ -21,14 +21,10 @@ public class ClassPerson implements Person
     String Name;
     Date BirthDate;
 
-    public ClassPerson(String Name, String BirthDate) {
+    public ClassPerson(String Name, Date BirthDate) {
         this.Name = Name;
-        try {
-            this.BirthDate = new SimpleDateFormat( "dd.MM.yyyy" ).parse(BirthDate);
-        } catch (ParseException ex) {
-            this.BirthDate = null;
-        }
-
+        this.BirthDate = BirthDate;
+        
     }
 
     
@@ -44,8 +40,7 @@ public class ClassPerson implements Person
 
     @Override
     public String toString() {
-        DateFormat df = new SimpleDateFormat( "dd.MM.yyyy" );
-        return getName() + ", " + df.format(BirthDate) + " года рождения";
+         return getName() + ", " + BirthDate.getDay() + "." + BirthDate.getMonth() + "."  + BirthDate.getYear() + " года рождения";
     }
     
     /*
